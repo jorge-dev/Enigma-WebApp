@@ -16,3 +16,49 @@ a{
 .nav-container{
   margin:auto;
 }
+
+
+/* ============ pwd bar */
+
+.pwd-strength-meter {
+  text-align: center;
+}
+
+.pwd-strength-meter-progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width:100%;
+  height: 14px;
+}
+
+.pwd-strength-meter-progress::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 3px;
+  
+}
+
+.pwd-strength-meter-label {
+  font-size: 14px;
+}
+
+.pwd-strength-meter-progress::-webkit-progress-value {
+  border-radius: 2px;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+.strength-Weak::-webkit-progress-value {
+  background-color: rgb(233, 32, 29);
+  transition-duration: .8s;
+}
+.strength-Fair::-webkit-progress-value {
+  background-color: rgb(253, 210, 37);
+  transition-duration: .8s;
+}
+.strength-Good::-webkit-progress-value {
+  background-color: rgb(39, 52, 223);
+  transition-duration: .8s;
+}
+.strength-Strong::-webkit-progress-value {
+  background-color: rgb(57, 224, 51);
+  transition-duration: .8s;
+}

@@ -11,7 +11,7 @@ import home from "./pages/home";
 import login from "./pages/login";
 import signup from "./pages/signup";
 
-const Theme = createMuiTheme({
+const theme = createMuiTheme({
   palette: {
     primary: {
       light: '#63a4ff',
@@ -30,12 +30,12 @@ const Theme = createMuiTheme({
   typography:{
     useNextVariants:true
   },
-  spacing :4
+  spacing:2
 });
 
 function App() {
   return (
-    <MuiThemeProvider theme={Theme}>
+    <MuiThemeProvider theme={theme}>
 <div className="App">
       <Router>
         <Navbar/>
