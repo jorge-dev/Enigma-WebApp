@@ -13,6 +13,9 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 class login extends Component {
   constructor() {
@@ -22,11 +25,15 @@ class login extends Component {
       password: "",
       loading: false,
       errors: {},
+      isPasswordShown: false,
       
     };
   }
 
- 
+  togglePwdVisibility = () => {
+    const isShown = this.state.isPasswordShown;
+    this.setState({ isPasswordShown: !isShown });
+  };
 
   handleSubmit = evt => {
     evt.preventDefault();
@@ -62,6 +69,7 @@ class login extends Component {
     const {
       errors,
       loading,
+      isPasswordShown
     } = this.state;
     return (
       <Grid container className={classes.form}>
@@ -92,7 +100,7 @@ class login extends Component {
             <TextField
               id="password"
               name="password"
-              type="password"
+              type={isPasswordShown ? "text" : "password"}
               label="Password"
               helperText={errors.password}
               error={errors.password ? true : false}
@@ -100,6 +108,17 @@ class login extends Component {
               value={this.state.password}
               onChange={this.handleChange}
               fullWidth
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment>
+                    {isPasswordShown ? (
+                      <Visibility className="pwd_visibility" onClick={this.togglePwdVisibility} />
+                    ) : (
+                      <VisibilityOff className="pwd_visibility" onClick={this.togglePwdVisibility} />
+                    )}
+                  </InputAdornment>
+                )
+              }}
             />
             <Button
               type="submit"

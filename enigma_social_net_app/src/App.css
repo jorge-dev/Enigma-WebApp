@@ -17,6 +17,12 @@ a{
   margin:auto;
 }
 
+.fa-eye{
+position: absolute;
+}
+ .pwd_visibility{
+   cursor: pointer;
+ }
 
 /* ============ pwd bar */
 

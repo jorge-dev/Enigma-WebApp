@@ -6,12 +6,16 @@ import enigmaIcon from "../images/logo.png";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import zxcvbn from "zxcvbn";
+
 //material Ui
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 class signup extends Component {
   constructor() {
@@ -26,9 +30,20 @@ class signup extends Component {
       pwdScore: 0,
       pwdWarning: "",
       pwdSuggestions: [],
-      pwdSelect: false
+      pwdSelect: false,
+      isPasswordShown: false,
+      isConfPasswordShown: false
     };
   }
+
+  togglePwdVisibility = () => {
+    const isShown = this.state.isPasswordShown;
+    this.setState({ isPasswordShown: !isShown });
+  };
+  toggleConfPwdVisibility = () => {
+    const isShown = this.state.isConfPasswordShown;
+    this.setState({ isConfPasswordShown: !isShown });
+  };
 
   pwdLabel = score => {
     switch (score) {
@@ -99,7 +114,9 @@ class signup extends Component {
       pwdScore,
       pwdSuggestions,
       pwdWarning,
-      pwdSelect
+      pwdSelect,
+      isPasswordShown,
+      isConfPasswordShown
     } = this.state;
     return (
       <Grid container className={classes.form}>
@@ -130,7 +147,7 @@ class signup extends Component {
             <TextField
               id="password"
               name="password"
-              type="password"
+              type={isPasswordShown ? "text" : "password"}
               label="Password"
               helperText={errors.password ? errors.password : pwdWarning}
               error={errors.password ? true : false}
@@ -138,9 +155,20 @@ class signup extends Component {
               value={this.state.password}
               onChange={this.onPasswordChange}
               fullWidth
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment>
+                    {isPasswordShown ? (
+                      <Visibility className="pwd_visibility" onClick={this.togglePwdVisibility} />
+                    ) : (
+                      <VisibilityOff className="pwd_visibility" onClick={this.togglePwdVisibility} />
+                    )}
+                  </InputAdornment>
+                )
+              }}
             />
             {/* Password sthrength bar */}
-            { pwdSelect && (
+            {pwdSelect && (
               <div className="pwd-strength-meter ">
                 <progress
                   value={pwdScore}
@@ -164,7 +192,7 @@ class signup extends Component {
             <TextField
               id="confirmPassword"
               name="confirmPassword"
-              type="password"
+              type={isConfPasswordShown ? "text" : "password"}
               label="Confirm Password"
               helperText={errors.confirmPassword}
               error={errors.confirmPassword ? true : false}
@@ -172,6 +200,17 @@ class signup extends Component {
               value={this.state.confirmPassword}
               onChange={this.handleChange}
               fullWidth
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment>
+                    {isConfPasswordShown ? (
+                      <Visibility className="pwd_visibility" onClick={this.toggleConfPwdVisibility} />
+                    ) : (
+                      <VisibilityOff className="pwd_visibility" onClick={this.toggleConfPwdVisibility} />
+                    )}
+                  </InputAdornment>
+                )
+              }}
             />
             <TextField
               id="handle"
