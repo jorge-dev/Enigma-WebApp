@@ -17,13 +17,17 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
+//Redux
+import {connect} from 'react-redux';
+import {loginUser} from '../redux/actions/userActions';
+
 class login extends Component {
   constructor() {
     super();
     this.state = {
       email: "",
       password: "",
-      loading: false,
+    
       errors: {},
       isPasswordShown: false,
       
@@ -37,25 +41,13 @@ class login extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
-    this.setState({
-      loading: true
-    });
+    
     const userData = {
       email: this.state.email,
       password: this.state.password
     };
-    axios
-      .post("/login", userData)
-      .then(res => {
-        console.log(res.data);
-        localStorage.setItem("FbIdToken", `Bearer ${res.data.token}`);
-        this.setState({ loading: false });
-        this.props.history.push("/");
-      })
-      .catch(err => {
-        this.setState({ errors: err.response.data, loading: false });
-      });
-  };
+    this.props.loginUser(userData,this.props.history);
+}
 
   handleChange = evt => {
     this.setState({
@@ -65,10 +57,10 @@ class login extends Component {
 
 
   render() {
-    const { classes } = this.props;
+    const { classes , UI:{loading}} = this.props;
     const {
       errors,
-      loading,
+     
       isPasswordShown
     } = this.state;
     return (
@@ -145,7 +137,19 @@ class login extends Component {
 }
 
 login.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  loginUser:PropTypes.func.isRequired,
+  user:PropTypes.object.isRequired,
+  Ui:PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(login);
+const mapStateToProps = (state) => ({
+    user: state.user,
+    UI: state.UI
+});
+
+const mapActionsToProps = {
+    loginUser
+}
+
+export default connect(mapStateToProps,mapActionsToProps)(withStyles(styles)(login));
