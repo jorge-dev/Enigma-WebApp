@@ -13,6 +13,10 @@ import home from "./pages/home";
 import login from "./pages/login";
 import signup from "./pages/signup";
 
+//redux
+import { Provider } from "react-redux";
+import store from "./redux/store";
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -39,7 +43,9 @@ const token = localStorage.FbIdToken;
 if (token) {
   const decodedToken = jwtDecode(token);
   if (decodedToken.exp * 1000 < Date.now()) {
+    
     window.location.href = "/login";
+    localStorage.clear(); // take a look at this if something is not working 
     authenticate = false;
   } else authenticate = true;
 }
@@ -47,28 +53,30 @@ if (token) {
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
-      <div className="App">
-        <Router>
-          <Navbar />
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={home}></Route>
-              <AuthRoute
-                exact
-                path="/login"
-                component={login}
-                authenticate={authenticate}
-              ></AuthRoute>
-              <AuthRoute
-                exact
-                path="/signup"
-                component={signup}
-                authenticate={authenticate}
-              ></AuthRoute>
-            </Switch>
-          </div>
-        </Router>
-      </div>
+      <Provider store={store}>
+       
+          <Router>
+            <Navbar />
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={home}></Route>
+                <AuthRoute
+                  exact
+                  path="/login"
+                  component={login}
+                  authenticate={authenticate}
+                ></AuthRoute>
+                <AuthRoute
+                  exact
+                  path="/signup"
+                  component={signup}
+                  authenticate={authenticate}
+                ></AuthRoute>
+              </Switch>
+            </div>
+          </Router>
+      
+      </Provider>
     </MuiThemeProvider>
   );
 }
