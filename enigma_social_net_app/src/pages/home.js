@@ -4,6 +4,8 @@ import axios from "axios";
 
 //component
 import Post from "../components/Post";
+import Profile from "../components/Profile";
+
 class home extends Component {
   state = {
     screams: null
@@ -20,7 +22,9 @@ class home extends Component {
   }
   render() {
     let recentPost = this.state.screams ? (
-      this.state.screams.map(posts => <Post key={posts.screamId} scream={posts}></Post>)
+      this.state.screams.map(posts => (
+        <Post key={posts.screamId} scream={posts}></Post>
+      ))
     ) : (
       <p>Loading...</p>
     );
@@ -30,7 +34,7 @@ class home extends Component {
           {recentPost}
         </Grid>
         <Grid item sm={4} xs={12}>
-          <p>Profile...</p>
+          <Profile></Profile>
         </Grid>
       </Grid>
     );
