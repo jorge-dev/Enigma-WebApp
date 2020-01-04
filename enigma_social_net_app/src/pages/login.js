@@ -3,7 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "../styles/Login-signup";
 import PropTypes from "prop-types";
 import enigmaIcon from "../images/logo.png";
-import axios from "axios";
+
 import { Link } from "react-router-dom";
 
 
@@ -39,6 +39,12 @@ class login extends Component {
     this.setState({ isPasswordShown: !isShown });
   };
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.UI.errors) {
+      this.setState({ errors: nextProps.UI.errors });
+    }
+  }
+
   handleSubmit = evt => {
     evt.preventDefault();
     
@@ -60,7 +66,6 @@ class login extends Component {
     const { classes , UI:{loading}} = this.props;
     const {
       errors,
-     
       isPasswordShown
     } = this.state;
     return (
