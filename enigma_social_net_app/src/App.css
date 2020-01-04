@@ -24,6 +24,10 @@ position: absolute;
    cursor: pointer;
  }
 
+ .nav-container svg{
+   color:white;
+ }
+
 /* ============ pwd bar */
 
 .pwd-strength-meter {

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import MuiLink from "@material-ui/core/Link";
 import dayjs from "dayjs";
 import EditProfileDetails from "../components/EditProfileDetails";
+import CustomButton from '../utilities/CustomButton'
 //redux
 import { logoutUser, uploadImage } from "../redux/actions/userActions";
 
@@ -14,8 +15,7 @@ import { logoutUser, uploadImage } from "../redux/actions/userActions";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import Tooltip from "@material-ui/core/Tooltip";
+
 
 //Icons
 import LocationOn from "@material-ui/icons/LocationOn";
@@ -64,19 +64,19 @@ class Profile extends Component {
                 onChange={this.handleImageChange}
               />
 
-              <Tooltip title="Update Profile Picture" placement="right-end">
+              {/* <Tooltip title="Update Profile Picture" placement="right-end">
                 <IconButton onClick={this.handleEditPicture} className="button">
                   <PhotoCameraRoundedIcon color="primary" />
                 </IconButton>
-              </Tooltip>
+              </Tooltip> */}
 
-              {/* <CustomButtin
-                  tip="Edit profile picture"
-                  onClick={this.handleEditPicture}
-                  btnClassName="button"
-                >
-                  <EditIcon color="primary" />
-                </CustomButtin> */}
+              <CustomButton
+                tip="Edit profile picture"
+                onClick={this.handleEditPicture}
+                btnClassName="button"
+              >
+                <PhotoCameraRoundedIcon color="primary" />
+              </CustomButton>
             </div>
             <hr />
             <div className="profile-details">
@@ -111,15 +111,15 @@ class Profile extends Component {
               <span>Joined {dayjs(createdAt).format("MMM YYYY")}</span>
             </div>
 
-            <Tooltip title="Log Out">
+            {/* <Tooltip title="Log Out">
               <IconButton onClick={this.handleLogout}>
                 <ExitToAppRoundedIcon color="error" />
               </IconButton>
-            </Tooltip>
-            {/* <MyButton tip="Logout" onClick={this.handleLogout}>
-                <KeyboardReturn color="primary" />
-              </MyButton>
-              <EditDetails /> */}
+            </Tooltip> */}
+            <CustomButton tip="Logout" onClick={this.handleLogout}>
+              <ExitToAppRoundedIcon color="error" />
+            </CustomButton>
+
             <EditProfileDetails />
           </div>
         </Paper>
