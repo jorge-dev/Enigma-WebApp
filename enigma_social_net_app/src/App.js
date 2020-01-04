@@ -5,7 +5,7 @@ import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
-
+import Theme from './styles/Theme'
 //Components
 import Navbar from "./components/Navbar";
 import AuthRoute from "./utilities/AuthRoute";
@@ -22,26 +22,7 @@ import {SET_AUTHENTICATED} from './redux/types';
 import  {logoutUser, getUserData} from './redux/actions/userActions';
 
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      light: "#63a4ff",
-      main: "#1976d2",
-      dark: "#004ba0",
-      contrastText: "#fff"
-    },
-    secondary: {
-      light: "#90ff71",
-      main: "#58d63f",
-      dark: "#05a300",
-      contrastText: "#fff"
-    }
-  },
-  typography: {
-    useNextVariants: true
-  },
-  spacing: 2
-});
+const theme = createMuiTheme(Theme);
 
 const token = localStorage.FBIdToken;
 if (token) {
