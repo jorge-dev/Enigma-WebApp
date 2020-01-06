@@ -11,7 +11,7 @@ import  DialogTitle  from "@material-ui/core/DialogTitle";
 import  DialogActions from "@material-ui/core/DialogActions";
 
 //icons
-import BackspaceOutlinedIcon from '@material-ui/icons/BackspaceOutlined';
+// import BackspaceOutlinedIcon from '@material-ui/icons/BackspaceOutlined';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
 //redux
@@ -51,7 +51,7 @@ const styles= {
         return (
             <Fragment>
                 <CustomButton tip="Delete Post" onClick={this.handleOpen} btnClassName={classes.deleteButton }>
-                    <BackspaceOutlinedIcon color='error'/>
+                    <DeleteOutlinedIcon color='primary'/>
                 </CustomButton>
                 <Dialog
                 open={this.state.open}
