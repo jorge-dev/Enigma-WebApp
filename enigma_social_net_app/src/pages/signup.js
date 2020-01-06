@@ -92,7 +92,7 @@ class signup extends Component {
   };
 
   onPasswordChange = evt => {
-    this.state.errors.password = "";
+    this.setState({errors:{password:''}}); // changed this in case it doesnt work just type this back this.state.errors.password
     const pass = evt.target.value;
     const evalPass = zxcvbn(pass);
     console.log(evalPass);
@@ -147,7 +147,7 @@ class signup extends Component {
               name="password"
               type={isPasswordShown ? "text" : "password"}
               label="Password"
-              helperText={errors.password ? errors.password : pwdWarning}
+          helperText={errors.password ? errors.password : pwdWarning || (pwdSuggestions)}
               error={errors.password ? true : false}
               className={classes.textField}
               value={this.state.password}
