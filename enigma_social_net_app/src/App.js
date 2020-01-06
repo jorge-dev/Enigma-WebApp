@@ -24,6 +24,9 @@ import { logoutUser, getUserData } from "./redux/actions/userActions";
 
 const theme = createMuiTheme(Theme);
 
+axios.defaults.baseURL =
+"https://us-central1-enigma-social-network.cloudfunctions.net/api";
+
 const token = localStorage.FBIdToken;
 if (token) {
   const decodedToken = jwtDecode(token);

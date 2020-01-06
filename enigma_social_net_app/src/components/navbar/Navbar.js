@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import CustomButton from "../../utilities/CustomButton";
 import CreatePost from '../post/CreatePost'
+import Notifications from './Notifications'
 //Material Ui
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -17,7 +18,7 @@ import { connect } from "react-redux";
 // icons
 
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
-import NotificationsActiveRoundedIcon from "@material-ui/icons/NotificationsActiveRounded";
+
 
 class Navbar extends Component {
   render() {
@@ -35,9 +36,7 @@ class Navbar extends Component {
                 </CustomButton>
               </Link>
 
-              <CustomButton tip="Notifications">
-                <NotificationsActiveRoundedIcon color="inherit" />
-              </CustomButton>
+              <Notifications/>
             </Fragment>
           ) : (
             <Fragment>
