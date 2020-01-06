@@ -3,6 +3,8 @@ import { withStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import LikeButton from "./LikeButton";
+import Comments from './Comments'
+import CommentForm from './CommentForm'
 
 import PropTypes from "prop-types";
 import CustomButton from "../../utilities/CustomButton";
@@ -24,11 +26,8 @@ import ChatRoundedIcon from "@material-ui/icons/ChatRounded";
 import { connect } from "react-redux";
 import { getPost } from "../../redux/actions/dataActions";
 
-const styles = {
-  invisibleSeparator: {
-    border: "none",
-    margin: 4
-  },
+const styles = theme => ( {
+  ...theme.spreadThis,
   profileImage: {
     maxWidth: 200,
     height: 200,
@@ -51,7 +50,7 @@ const styles = {
     marginTop: 50,
     marginBottom: 50
   }
-};
+});
 
 class PostDialog extends Component {
   state = {
@@ -78,7 +77,8 @@ class PostDialog extends Component {
         likeCount,
         commentCount,
         userImage,
-        userHandle
+        userHandle,
+        comments
       },
       UI: { loading }
     } = this.props;
@@ -116,6 +116,9 @@ class PostDialog extends Component {
           </CustomButton>
           <span>{commentCount} Comments</span>
         </Grid>
+        <hr className={classes.visibleSeparator} />
+        <CommentForm screamId={screamId}/>
+        <Comments comments={comments}/>
       </Grid>
     );
 
