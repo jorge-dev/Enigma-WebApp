@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-import CustomButton from "../utilities/CustomButton";
+import CustomButton from "../../utilities/CustomButton";
 
 
 //Material Ui
@@ -16,7 +16,7 @@ import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
 //redux
 import { connect } from "react-redux";
-import {deletePost} from '../redux/actions/dataActions'
+import {deletePost} from '../../redux/actions/dataActions'
 
 const styles= {
     deleteButton: {

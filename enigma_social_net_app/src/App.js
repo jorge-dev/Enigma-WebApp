@@ -7,7 +7,7 @@ import jwtDecode from "jwt-decode";
 import axios from "axios";
 import Theme from './styles/Theme'
 //Components
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar/Navbar";
 import AuthRoute from "./utilities/AuthRoute";
 
 // Pages

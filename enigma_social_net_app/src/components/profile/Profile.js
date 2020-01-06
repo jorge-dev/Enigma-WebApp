@@ -2,14 +2,14 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
-import styles from "../styles/ProfileCss";
+import styles from "../../styles/ProfileCss";
 import { Link } from "react-router-dom";
 import MuiLink from "@material-ui/core/Link";
 import dayjs from "dayjs";
-import EditProfileDetails from "../components/EditProfileDetails";
-import CustomButton from '../utilities/CustomButton'
+import EditProfileDetails from "./EditProfileDetails";
+import CustomButton from '../../utilities/CustomButton'
 //redux
-import { logoutUser, uploadImage } from "../redux/actions/userActions";
+import { logoutUser, uploadImage } from "../../redux/actions/userActions";
 
 //Materia UI
 import Button from "@material-ui/core/Button";

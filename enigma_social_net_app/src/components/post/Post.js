@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { connect } from "react-redux";
-import { likePost, unlikePost } from "../redux/actions/dataActions";
+import { likePost, unlikePost } from "../../redux/actions/dataActions";
 import PropTypes from "prop-types";
-import CustomButton from "../utilities/CustomButton";
+import CustomButton from "../../utilities/CustomButton";
 import DeletePost from "./DeletePost";
 import PostDialog from './PostDialog'
 
