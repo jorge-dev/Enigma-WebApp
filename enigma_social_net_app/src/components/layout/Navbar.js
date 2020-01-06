@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import CustomButton from "../utilities/CustomButton";
-import CreatePost from '../components/CreatePost'
+import CustomButton from "../../utilities/CustomButton";
+import CreatePost from '../post/CreatePost'
 //Material Ui
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";

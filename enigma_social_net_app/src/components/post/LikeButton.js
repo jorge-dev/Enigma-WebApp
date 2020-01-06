@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import CustomButton from "../utilities/CustomButton";
+import CustomButton from "../../utilities/CustomButton";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { likePost, unlikePost } from "../redux/actions/dataActions";
+import { likePost, unlikePost } from "../../redux/actions/dataActions";
 
 //Redux
 import { connect } from "react-redux";

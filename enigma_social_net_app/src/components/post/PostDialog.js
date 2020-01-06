@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import LikeButton from "./LikeButton";
 
 import PropTypes from "prop-types";
-import CustomButton from "../utilities/CustomButton";
+import CustomButton from "../../utilities/CustomButton";
 
 //Material UI
 import Dialog from "@material-ui/core/Dialog";
@@ -22,7 +22,7 @@ import ChatRoundedIcon from "@material-ui/icons/ChatRounded";
 
 //Redux
 import { connect } from "react-redux";
-import { getPost } from "../redux/actions/dataActions";
+import { getPost } from "../../redux/actions/dataActions";
 
 const styles = {
   invisibleSeparator: {
