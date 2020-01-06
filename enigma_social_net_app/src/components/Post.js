@@ -8,6 +8,7 @@ import { likePost, unlikePost } from "../redux/actions/dataActions";
 import PropTypes from "prop-types";
 import CustomButton from "../utilities/CustomButton";
 import DeletePost from "./DeletePost";
+import PostDialog from './PostDialog'
 
 //Material Ui
 import Card from "@material-ui/core/Card";
@@ -125,6 +126,10 @@ class Post extends Component {
             <ChatRoundedIcon color="primary" />
           </CustomButton>
           <span>{commentCount} Comments</span>
+          <PostDialog
+            screamId={screamId}
+            userHandle={userHandle}
+          />
         </CardContent>
       </Card>
     );

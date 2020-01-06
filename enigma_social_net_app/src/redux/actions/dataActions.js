@@ -32,6 +32,7 @@ import {
         });
       });
   };
+  //Get one Post 
   export const getPost = (screamId) => (dispatch) => {
     dispatch({ type: LOADING_UI });
     axios
