@@ -15,7 +15,7 @@ import {
   import axios from 'axios';
   
   // Get all screams
-  export const getScreams = () => (dispatch) => {
+  export const getPosts = () => (dispatch) => {
     dispatch({ type: LOADING_DATA });
     axios
       .get('/screams')
@@ -32,7 +32,7 @@ import {
         });
       });
   };
-  export const getScream = (screamId) => (dispatch) => {
+  export const getPost = (screamId) => (dispatch) => {
     dispatch({ type: LOADING_UI });
     axios
       .get(`/scream/${screamId}`)
@@ -46,10 +46,10 @@ import {
       .catch((err) => console.log(err));
   };
   // Post a scream
-  export const postScream = (newScream) => (dispatch) => {
+  export const postPost = (newPost) => (dispatch) => {
     dispatch({ type: LOADING_UI });
     axios
-      .post('/scream', newScream)
+      .post('/scream', newPost)
       .then((res) => {
         dispatch({
           type: POST_POST,
@@ -65,7 +65,7 @@ import {
       });
   };
   // Like a scream
-  export const likeScream = (screamId) => (dispatch) => {
+  export const likePost = (screamId) => (dispatch) => {
     axios
       .get(`/scream/${screamId}/like`)
       .then((res) => {
@@ -77,7 +77,7 @@ import {
       .catch((err) => console.log(err));
   };
   // Unlike a scream
-  export const unlikeScream = (screamId) => (dispatch) => {
+  export const unlikePost = (screamId) => (dispatch) => {
     axios
       .get(`/scream/${screamId}/unlike`)
       .then((res) => {
@@ -106,7 +106,7 @@ import {
         });
       });
   };
-  export const deleteScream = (screamId) => (dispatch) => {
+  export const deletePost = (screamId) => (dispatch) => {
     axios
       .delete(`/scream/${screamId}`)
       .then(() => {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getScreams} from '../redux/actions/dataActions'
+import {getPosts} from '../redux/actions/dataActions'
 
 //component
 import Post from "../components/Post";
@@ -12,7 +12,7 @@ class home extends Component {
   
 
   componentDidMount() {
-    this.props.getScreams();
+    this.props.getPosts();
   }
   render() {
     const { screams,loading} =this.props.data
@@ -37,7 +37,7 @@ class home extends Component {
 }
 
 home.propTypes ={
-  getScreams: PropTypes.func.isRequired,
+  getPosts: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired
 }
 
@@ -45,4 +45,4 @@ const mapStateToProps = (state) => ({
   data: state.data
 })
 
-export default connect(mapStateToProps, {getScreams})(home);
+export default connect(mapStateToProps, {getPosts})(home);
