@@ -11,8 +11,6 @@ import { connect } from "react-redux";
 import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
 import FavoriteOutlinedIcon from "@material-ui/icons/FavoriteOutlined";
 
-
-
  class LikeButton extends Component {
 
     likedPost = () => {
