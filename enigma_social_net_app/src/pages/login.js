@@ -132,7 +132,7 @@ class login extends Component {
             </Button>
             <br />
             <small>
-              Dont have an acount? Sign up <Link to="/signup">here</Link>
+              Dont have an acount? Sign up <Link to="/signup" className={classes.logSignLink} >&#8594; here</Link>
             </small>
           </form>
         </Grid>

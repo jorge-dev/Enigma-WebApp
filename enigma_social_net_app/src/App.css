@@ -18,7 +18,7 @@ a{
 }
 
 .nav-container{
-  margin:auto;
+ position:static;
 }
 
 .fa-eye{

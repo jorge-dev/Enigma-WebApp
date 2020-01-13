@@ -236,7 +236,7 @@ class signup extends Component {
             </Button>
             <br />
             <small>
-              Already have an acount? Log in <Link to="/login">here</Link>
+              Already have an acount? Log in <Link to="/login" className={classes.logSignLink}>&#8594; here</Link>
             </small>
           </form>
         </Grid>

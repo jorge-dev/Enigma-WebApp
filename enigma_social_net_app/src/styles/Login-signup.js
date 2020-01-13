@@ -27,5 +27,19 @@ export default {
       },
       progress:{
           position: 'absolute'
+      },
+      logSignLink:{
+        color: 'rgb(71, 126, 245)',
+        fontWeight: 'bolder',
+
+      },
+      logSignLink:{
+        '&:hover':{
+          fontSize: '1.5em',
+          transitionDuration: '.1s',
+          tansitionDelay: '.1s'
+          
+
+        }
       }
 };
