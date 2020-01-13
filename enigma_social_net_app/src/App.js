@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from '@material-ui/core/CssBaseline'
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
@@ -44,6 +45,7 @@ if (token) {
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
+      <CssBaseline />
       <Provider store={store}>
         <Router>
           <Navbar />
