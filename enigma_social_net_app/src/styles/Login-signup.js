@@ -1,6 +1,7 @@
 export default {
     form: {
         textAlign: "center",
+        
       },
       images: {
         margin: "20px auto 20px auto",

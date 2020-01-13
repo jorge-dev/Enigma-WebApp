@@ -17,6 +17,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
 
+
 //Icons
 import LocationOn from "@material-ui/icons/LocationOn";
 import LinkIcon from "@material-ui/icons/Link";
@@ -53,7 +54,7 @@ class Profile extends Component {
 
     let profileMarkup = !loading ? (
       authenticated ? (
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper} variant='outlined'>
           <div className={classes.profile}>
             <div className="image-wrapper">
               <img src={imageUrl} alt="profile" className="profile-image" />

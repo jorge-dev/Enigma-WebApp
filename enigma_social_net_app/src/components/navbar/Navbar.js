@@ -6,6 +6,7 @@ import CreatePost from '../post/CreatePost'
 import Notifications from './Notifications'
 //Material Ui
 import AppBar from "@material-ui/core/AppBar";
+import {Switch,FormControl}from '@material-ui/core'
 import Toolbar from "@material-ui/core/Toolbar";
 //import Typography from '@material-ui/core/Typography';
 import Button from "@material-ui/core/Button";
@@ -16,13 +17,16 @@ import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
 
 // icons
-
+import lightMode from '@material-ui/icons/Brightness7Rounded';
+import darkMode from '@material-ui/icons/Brightness4Rounded';
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 
 
 class Navbar extends Component {
+
+   
   render() {
-    const { authenticated } = this.props;
+    const { authenticated, toggleDarkMode } = this.props;
     return (
       <AppBar>
         <Toolbar className="nav-container">
@@ -37,6 +41,9 @@ class Navbar extends Component {
               </Link>
 
               <Notifications/>
+              <CustomButton tip="Toggle Dark/Light Mode">
+                <Switch onClick ={toggleDarkMode}/>
+              </CustomButton>
             </Fragment>
           ) : (
             <Fragment>
@@ -52,13 +59,15 @@ class Navbar extends Component {
             </Fragment>
           )}
         </Toolbar>
+        <Button></Button>
       </AppBar>
     );
   }
 }
 
 Navbar.propTypes = {
-  authenticated: PropTypes.bool.isRequired
+  authenticated: PropTypes.bool.isRequired,
+  toggleDarkMode:PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({

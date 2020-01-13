@@ -1,6 +1,8 @@
 export default {
     paper: {
-        padding: 20
+        padding: 20,
+        margin: '0 3% 20px 3%',
+       
       },
       profile: {
         '& .image-wrapper': {

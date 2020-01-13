@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
@@ -23,7 +23,9 @@ import store from "./redux/store";
 import { SET_AUTHENTICATED } from "./redux/types";
 import { logoutUser, getUserData } from "./redux/actions/userActions";
 
-const theme = createMuiTheme(Theme);
+// const theme = createMuiTheme(Theme);
+
+
 
 axios.defaults.baseURL =
 "https://us-central1-enigma-social-network.cloudfunctions.net/api";
@@ -42,13 +44,38 @@ if (token) {
   }
 }
 
+// dark mode
+const SetDarkMode =() => {
+  const [myTheme, setTheme] = useState(Theme);
+
+  const {palette: {type}} = myTheme;
+
+  const toggleDarkMode = () => {
+    const updatedTheme = {
+      ...myTheme,
+      palette:{
+        ...myTheme.palette,
+        type: type === 'light' ? 'dark' : 'light'
+      }
+    }
+
+    setTheme(updatedTheme);
+
+  }
+
+  return [myTheme,toggleDarkMode]
+}
+
 function App() {
+const [myTheme, toggleDarkMode] = SetDarkMode();
+const theme = createMuiTheme(myTheme);
+
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <Provider store={store}>
         <Router>
-          <Navbar />
+          <Navbar toggleDarkMode={toggleDarkMode}/>
           <div className="container">
             <Switch>
               <Route exact path="/" component={home}></Route>

@@ -27,7 +27,12 @@ const styles = {
     marginBottom: 20
   },
   image: {
-    minWidth: 200
+    width: 150,
+    height:150,
+    minWidth: 75,
+    minHeight:75,
+    margin:'2.5% 0 2.5% 1%',
+    borderRadius:'25%'
   },
   content: {
     padding: 25,
@@ -71,7 +76,7 @@ class Post extends Component {
             variant="h5"
             component={Link}
             to={`/users/${userHandle}`}
-            color="primary"
+            color="inherit"
           >
             {userHandle}
           </Typography>

@@ -11,7 +11,8 @@ export default {
         main: "#58d63f",
         dark: "#05a300",
         contrastText: "#fff"
-      }
+      },
+      type:'light'
     },
     spreadThis: {
       typography: {

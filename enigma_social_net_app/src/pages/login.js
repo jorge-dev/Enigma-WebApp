@@ -69,9 +69,10 @@ class login extends Component {
       isPasswordShown
     } = this.state;
     return (
-      <Grid container className={classes.form}>
+      <div className='root'>
+      <Grid container className={classes.form} spacing={4}>
         <Grid item sm />
-        <Grid item xs={6} spacing={2}>
+        <Grid item xs={6} >
           <img src={enigmaIcon} alt="enigma icon" className={classes.images} />
           <Typography variant="h3" className={classes.pageTitle}>
             Login
@@ -137,6 +138,7 @@ class login extends Component {
         </Grid>
         <Grid item sm />
       </Grid>
+      </div>
     );
   }
 }
@@ -145,7 +147,7 @@ login.propTypes = {
   classes: PropTypes.object.isRequired,
   loginUser:PropTypes.func.isRequired,
   user:PropTypes.object.isRequired,
-  Ui:PropTypes.object.isRequired,
+  UI:PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({

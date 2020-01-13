@@ -117,7 +117,7 @@ class signup extends Component {
       isConfPasswordShown
     } = this.state;
     return (
-      <Grid container className={classes.form}>
+      <Grid container className={classes.form} spacing={4}>
         <Grid item sm />
         <Grid item xs={6}>
           <img src={enigmaIcon} alt="enigma icon" className={classes.images} />
