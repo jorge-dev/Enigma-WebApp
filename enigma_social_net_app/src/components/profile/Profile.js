@@ -8,6 +8,8 @@ import MuiLink from "@material-ui/core/Link";
 import dayjs from "dayjs";
 import EditProfileDetails from "./EditProfileDetails";
 import CustomButton from '../../utilities/CustomButton'
+import Icon from "@mdi/react";
+import ProfileSkeleton from '../../utilities/ProfileSkeleton';
 //redux
 import { logoutUser, uploadImage } from "../../redux/actions/userActions";
 
@@ -24,6 +26,7 @@ import LinkIcon from "@material-ui/icons/Link";
 import CalendarToday from "@material-ui/icons/CalendarToday";
 import PhotoCameraRoundedIcon from "@material-ui/icons/PhotoCameraRounded";
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
+import { mdiLogout as LogoutIcon } from '@mdi/js';
 
 class Profile extends Component {
   handleImageChange = event => {
@@ -112,13 +115,9 @@ class Profile extends Component {
               <span>Joined {dayjs(createdAt).format("MMM YYYY")}</span>
             </div>
 
-            {/* <Tooltip title="Log Out">
-              <IconButton onClick={this.handleLogout}>
-                <ExitToAppRoundedIcon color="error" />
-              </IconButton>
-            </Tooltip> */}
+           
             <CustomButton tip="Logout" onClick={this.handleLogout}>
-              <ExitToAppRoundedIcon color="error" />
+            <Icon path={LogoutIcon} size={1} color="red" />
             </CustomButton>
 
             <EditProfileDetails />
@@ -150,8 +149,8 @@ class Profile extends Component {
         </Paper>
       )
     ) : (
-      // <ProfileSkeleton />
-      <p>Loading....</p>
+       <ProfileSkeleton />
+      // <p>Loading....</p>
     );
 
     return profileMarkup;

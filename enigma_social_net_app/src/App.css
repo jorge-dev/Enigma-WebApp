@@ -19,7 +19,11 @@ a{
 
 .nav-container{
  position:static;
+ /* margin:auto; */
+ 
 }
+
+
 
 .fa-eye{
 position: absolute;
@@ -30,6 +34,7 @@ position: absolute;
 
  .nav-container svg{
    color:white;
+  
  }
 
 /* ============ pwd bar */
@@ -76,3 +81,22 @@ position: absolute;
   background-color: rgb(57, 224, 51);
   transition-duration: .8s;
 }
+
+.logSignLink{
+     color: rgb(71, 126, 245);
+     font-weight: bolder;
+     transition: all .2s ease-in;
+     font-size:1.2em;
+     transition-duration: .2s;
+     transition-delay: .1s;
+
+   }
+   .logSignLink:hover {
+
+       color : rgb(45, 201, 45);
+       font-size: 1.6em;
+       transition-duration: .2s;
+       transition-delay: .1s;
+
+     
+   }
