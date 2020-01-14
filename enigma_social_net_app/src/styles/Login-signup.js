@@ -1,6 +1,12 @@
 export default {
     form: {
         textAlign: "center",
+        // border: '1px solid black',
+        borderRadius: '5%',
+        marginBottom: '10%',
+        marginTop: '10%',
+        padding: '5%',
+        boxShadow: '0 30px 60px 0 rgba(0,0,0,0.3)'
         
       },
       images: {

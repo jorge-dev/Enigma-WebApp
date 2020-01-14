@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
@@ -7,6 +7,7 @@ import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
 import Theme from "./styles/Theme";
+import storage from 'local-storage-fallback'
 //Components
 import Navbar from "./components/navbar/Navbar";
 import AuthRoute from "./utilities/AuthRoute";
@@ -45,8 +46,20 @@ if (token) {
 }
 
 // dark mode
+function getInitialTheme(){
+  const savedTheme= storage.getItem('theme');
+  return savedTheme ? JSON.parse(savedTheme): {
+    ...Theme,
+    palette:{
+      ...Theme.palette,
+      type: 'light'
+    }
+  };
+ 
+}
+
 const SetDarkMode =() => {
-  const [myTheme, setTheme] = useState(Theme);
+  const [myTheme, setTheme] = useState(getInitialTheme);
 
   const {palette: {type}} = myTheme;
 
@@ -66,9 +79,14 @@ const SetDarkMode =() => {
   return [myTheme,toggleDarkMode]
 }
 
+
+
 function App() {
 const [myTheme, toggleDarkMode] = SetDarkMode();
 const theme = createMuiTheme(myTheme);
+useEffect(() => {
+  storage.setItem('theme', JSON.stringify(myTheme),[myTheme])
+})
 
   return (
     <MuiThemeProvider theme={theme}>

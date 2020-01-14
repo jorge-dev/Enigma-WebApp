@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 
 //material Ui
+import Container from '@material-ui/core/Container';
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
@@ -70,9 +71,10 @@ class login extends Component {
     } = this.state;
     return (
       <div className='root'>
-      <Grid container className={classes.form} spacing={4}>
-        <Grid item sm />
-        <Grid item xs={6} >
+        <Container disableGutters component="main" maxWidth="sm" className={classes.form} >
+      {/* <Grid container className={classes.form} spacing={4}> */}
+        {/* <Grid item sm /> */}
+        {/* <Grid item xs={6} > */}
           <img src={enigmaIcon} alt="enigma icon" className={classes.images} />
           <Typography variant="h3" className={classes.pageTitle}>
             Login
@@ -135,9 +137,10 @@ class login extends Component {
               Dont have an acount? Sign up <Link to="/signup"  className='logSignLink'>&#8594; here</Link>
             </small>
           </form>
-        </Grid>
-        <Grid item sm />
-      </Grid>
+        {/* </Grid> */}
+        {/* <Grid item sm /> */}
+      {/* </Grid> */}
+      </Container>
       </div>
     );
   }

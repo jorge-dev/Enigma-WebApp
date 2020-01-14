@@ -36,6 +36,12 @@ const styles = {
     height: 30,
     margin: 0,
     padding: "4px 0 0 0 "
+  },
+  icon:{
+    marginLeft: '80%'
+  },
+  centerIcon:{
+    marginLeft: '5%'
   }
 };
 
@@ -54,7 +60,7 @@ class Navbar extends Component {
     const { authenticated, classes } = this.props;
     const { isDark } = this.state;
     return (
-      <AppBar>
+      <AppBar position='fixed'>
         <Toolbar className="nav-container">
           <Grid container spacing={4}>
             <Grid item sm={5}>
@@ -68,9 +74,9 @@ class Navbar extends Component {
               </Typography>
             </Grid>
 
-            <Grid item xs={6}>
+            <Grid item xs={4}>
               {authenticated ? (
-                <Fragment>
+                <Fragment className={classes.centerIcon} >
                   <CreatePost />
 
                   <Link to="/">
@@ -82,12 +88,12 @@ class Navbar extends Component {
                   <Notifications />
                 </Fragment>
               ) : (
-                <Fragment>
+                <Fragment >
                   {/* <Button color="inherit" component={Link} to="/">
                     Home
                   </Button> */}
                   <Link to="/">
-                    <CustomButton tip="Home">
+                    <CustomButton tip="Home" tipClassName={classes.centerIcon}>
                       <HomeRoundedIcon color="inherit" />
                     </CustomButton>
                   </Link>
@@ -111,7 +117,7 @@ class Navbar extends Component {
               )}
             </Grid>
             <Grid item sm>
-              <CustomButton tip="Toggle Dark/Light Mode">
+              <CustomButton tip="Toggle Dark/Light Mode" tipClassName={classes.icon}>
                 {isDark ? (
                   <LightMode onClick={this.toggleDark} />
                 ) : (
