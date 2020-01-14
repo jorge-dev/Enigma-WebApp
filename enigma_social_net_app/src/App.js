@@ -84,6 +84,8 @@ const SetDarkMode =() => {
 function App() {
 const [myTheme, toggleDarkMode] = SetDarkMode();
 const theme = createMuiTheme(myTheme);
+
+//stores the current them into localstorage
 useEffect(() => {
   storage.setItem('theme', JSON.stringify(myTheme),[myTheme])
 })
