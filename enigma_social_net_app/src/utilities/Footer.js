@@ -9,7 +9,7 @@ const styles ={
     root:{
         backgroundColor: '#1976D2',
         color:'white',
-        boxShadow: '1px 0px 18px #888888'
+        boxShadow: '1px -4px 10px -5px black;'
     }
 }
 
