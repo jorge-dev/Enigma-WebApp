@@ -8,7 +8,8 @@ import PropTypes from "prop-types";
 const styles ={
     root:{
         backgroundColor: '#1976D2',
-        color:'white'
+        color:'white',
+        boxShadow: '1px 0px 18px #888888'
     }
 }
 
