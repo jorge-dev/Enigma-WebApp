@@ -14,7 +14,19 @@ export default {
       },
       type:'light'
     },
+   
     spreadThis: {
+      overrides: {
+        // Style sheet name ⚛️
+        MuiBottomNavigation: {
+          // Name of the rule
+          root: {
+            // Some CSS
+            background: ' #FE6B8B',
+            
+          },
+        },
+      },
       typography: {
         useNextVariants: true
       },

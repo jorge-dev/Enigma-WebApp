@@ -104,10 +104,10 @@ class CreatePost extends Component {
               <TextField
                 name="body"
                 type="text"
-                label="SCREAM!!"
+                label="Click to start writing your post"
                 multiline
                 rows="3"
-                placeholder="Scream at your fellow apes"
+                placeholder="What are you thinking"
                 error={errors.body ? true : false}
                 helperText={errors.body}
                 className={classes.textField}
